@@ -1,0 +1,13 @@
+[Unit]
+Description=REST Service
+After=syslog.target
+
+[Service]
+User=ubuntu
+ExecStart=/usr/bin/java -jar /home/ubuntu/webapp/webapp-0.0.1-SNAPSHOT.jar
+SuccessExitStatus=143
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

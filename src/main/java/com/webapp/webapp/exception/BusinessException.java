@@ -1,0 +1,49 @@
+package com.webapp.webapp.exception;
+
+import org.springframework.stereotype.Component;
+import java.lang.Exception;
+import java.lang.RuntimeException;
+
+@Component
+public class BusinessException extends RuntimeException {
+
+    private static final long serialVersionUID = 1L;
+
+    private String errorCode;
+    private String errorMessage;
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public BusinessException() {
+
+    }
+
+    public BusinessException(String errorCode, String errorMessage) {
+        super();
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+    }
+
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
+    }
+}
